@@ -1,4 +1,4 @@
-require "Ree/version"
+require "ree/version"
 
 module Ree
   # Your code goes here...
