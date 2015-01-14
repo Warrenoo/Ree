@@ -12,7 +12,7 @@ module Ree
     end
 
     def meet?(request)
-      url == request.path_info.downcase &&
+      url == request.path_info.downcase       &&
       type == request.request_method.downcase &&
       conds.inject(true) {|a,e| a && (e.respond_to?(:call)? e.call : true) }
     end
