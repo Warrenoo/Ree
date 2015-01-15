@@ -1,8 +1,8 @@
 # coding: utf-8
 require "rack"
-require "./utils/request"
-require "./utils/response"
-require "./route"
+require "ree/utils/request"
+require "ree/utils/response"
+require "ree/route"
 
 module Ree
 
@@ -37,7 +37,7 @@ module Ree
       if route
         route.run
       else
-        Response.build [404, {"Content-Type" => "text/html"}, ["没有当前页面"]]
+        [404, {"Content-Type" => "text/html"}, ["没有当前页面"]]
       end
     end
 
@@ -55,13 +55,29 @@ module Ree
         @routes << Ree::Route.new(path, type, options, &block)
       end
 
+
+      def render(target)
+        return [200, {"Content-Type" => "text/html"}, [target]] unless target.is_a? Hash
+
+        type = target.keys.first
+        path = target.values.first
+
+        case type.to_s
+        when "template"
+          [200, {"Content-Type" => "text/html"}, [File.read(path)]]
+        when "json"
+          require 'json'
+          [200, {"Content-Type" => "application/json"}, [path.to_json]]
+        else raise 403
+        end
+      end
+
     end
 
   end
 
   class Application < Base
   end
-
 
   module Delegator
     def self.delegate(*methods)
@@ -74,7 +90,7 @@ module Ree
       end
     end
 
-    delegate :get, :put, :post, :delete, :route
+    delegate :get, :put, :post, :delete, :route, :render
   end
 end
 

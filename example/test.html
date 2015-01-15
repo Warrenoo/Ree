@@ -1,0 +1,162 @@
+<html><head>
+    <title>U统计</title><link data-turbolinks-track="true" href="/assets/bootstrap-datetimepicker.css?body=1" media="all" rel="stylesheet">
+    <link data-turbolinks-track="true" href="/assets/select2.css?body=1" media="all" rel="stylesheet">
+    <link data-turbolinks-track="true" href="/assets/select2-bootstrap.css?body=1" media="all" rel="stylesheet">
+    <link data-turbolinks-track="true" href="/assets/application.css?body=1" media="all" rel="stylesheet"><script data-turbolinks-track="true" src="/assets/jquery.js?body=1"></script>
+    <script data-turbolinks-track="true" src="/assets/jquery_ujs.js?body=1"></script>
+    <script data-turbolinks-track="true" src="/assets/bootstrap.js?body=1"></script>
+    <script data-turbolinks-track="true" src="/assets/jquery.turbolinks.js?body=1"></script>
+    <script data-turbolinks-track="true" src="/assets/jquery-ui.js?body=1"></script>
+    <script data-turbolinks-track="true" src="/assets/jquery.ui.sortable.js?body=1"></script>
+    <script data-turbolinks-track="true" src="/assets/highcharts.src.js?body=1"></script>
+    <script data-turbolinks-track="true" src="/assets/chart.js?body=1"></script>
+    <script data-turbolinks-track="true" src="/assets/bootstrap-datetimepicker.js?body=1"></script>
+    <script data-turbolinks-track="true" src="/assets/bootstrap-datetimepicker.zh-CN.js?body=1"></script>
+    <script data-turbolinks-track="true" src="/assets/select2.js?body=1"></script>
+    <script data-turbolinks-track="true" src="/assets/select2_locale_zh-CN.js?body=1"></script>
+    <script data-turbolinks-track="true" src="/assets/sorttable.js?body=1"></script>
+    <script data-turbolinks-track="true" src="/assets/application.js?body=1"></script><meta content="authenticity_token" name="csrf-param">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta content="UzKQhpPshUgskYcdAHATBB/bVzONtZkCGgd/K0ETZfs=" name="csrf-token">
+    <meta content="template language" name="keywords">
+    <meta content="cowboy" name="author">
+  <style id="style-1-cropbar-clipper">/* Copyright 2014 Evernote Corporation. All rights reserved. */
+.en-markup-crop-options {
+    top: 18px !important;
+    left: 50% !important;
+    margin-left: -100px !important;
+    width: 200px !important;
+    border: 2px rgba(255,255,255,.38) solid !important;
+    border-radius: 4px !important;
+}
+
+.en-markup-crop-options div div:first-of-type {
+    margin-left: 0px !important;
+}
+</style></head>
+  <body>
+    <div class="navbar navbar-fixed-top navbar-default" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="/">U统计</a>
+        </div>
+        <div class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li>
+              <a href="/funnels">过滤项</a>
+            </li>
+            <li class="active">
+              <a href="/factories">加工项</a>
+            </li>
+            <li>
+              <a href="/labels">快照</a>
+            </li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li class="dropdown">
+              <a data-toggle="dropdown" href="#">沈汪洋<b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li>
+                  <a href="/sys/users">用户管理</a>
+                </li>
+                <li>
+                  <a data-method="delete" href="/logout" rel="nofollow">注销</a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div id="content">
+      <div class="container">
+        <p class="alert alert-warning hide" id="form-alert">
+          表单内容不允许为空，请检查！
+        </p>
+      </div>
+      <div class="container">
+        <br>
+        <form action="/factories" method="get">
+          <div class="form-group">
+            <div class="row">
+              <div class="col-xs-2">
+                <div class="select2-container select2 form-control" id="s2id_autogen1"><a href="javascript:void(0)" class="select2-choice" tabindex="-1">   <span class="select2-chosen" id="select2-chosen-2">
+                    沈汪洋
+                  </span><abbr class="select2-search-choice-close"></abbr>   <span class="select2-arrow" role="presentation"><b role="presentation"></b></span></a><label for="s2id_autogen2" class="select2-offscreen"></label><input class="select2-focusser select2-offscreen" type="text" aria-haspopup="true" role="button" aria-labelledby="select2-chosen-2" id="s2id_autogen2"><div class="select2-drop select2-display-none select2-with-searchbox">   <div class="select2-search">       <label for="s2id_autogen2_search" class="select2-offscreen"></label>       <input type="text" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" class="select2-input" role="combobox" aria-expanded="true" aria-autocomplete="list" aria-owns="select2-results-2" id="s2id_autogen2_search" placeholder="">   </div>   <ul class="select2-results" role="listbox" id="select2-results-2">   </ul></div></div><select class="select2 form-control select2-offscreen" name="where[sys_user_id]" tabindex="-1" title="">
+                  <option value="">
+                    请选择创建用户
+                  </option>
+                  <option value="3">
+                    汪萍
+                  </option>
+                  <option value="2">
+                    蔡昭华
+                  </option>
+                  <option selected="selected" value="1">
+                    沈汪洋
+                  </option>
+                </select>
+              </div>
+              <div class="col-xs-2">
+                <div class="input-group date form_datetime">
+                  <input class="form-control" name="where[from_date]" placeholder="起始日期" readonly="" type="text" value=""><span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+                </div>
+              </div>
+              <div class="col-xs-2">
+                <div class="input-group date form_datetime">
+                  <input class="form-control" name="where[to_date]" placeholder="结束日期" readonly="" type="text" value=""><span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+                </div>
+              </div>
+              <div class="col-xs-3">
+                <button class="btn btn-default"><span class="glyphicon glyphicon-search"></span> 查询</button>
+              </div>
+              <div class="col-xs-2"></div>
+              <div class="col-xs-1">
+                <a class="btn btn-info pull-right" href="/factories/new">新建加工项</a>
+              </div>
+            </div>
+          </div>
+        </form>
+        <br>
+        <table class="table table-bordered table-hover">
+          <tbody><tr>
+            <th width="50px">
+              ID
+            </th>
+            <th>
+              名称
+            </th>
+            <th width="90px">
+              创建者
+            </th>
+            <th width="140px">
+              创建时间
+            </th>
+          </tr>
+          <tr>
+            <td>
+              <a href="/factories/1">1</a>
+            </td>
+            <td>
+              <a href="/factories/1">加工项测试</a>
+            </td>
+            <td>
+              沈汪洋
+            </td>
+            <td>
+              2015-01-07 17:27
+            </td>
+          </tr>
+        </tbody></table>
+        
+      </div>
+    </div>
+    <footer class="text-muted">
+      <div class="container">
+        <div class="footer-content">
+          <span class="pull-right"> © 基因团队 2010 - 2014</span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,5 +1,4 @@
 # coding: utf-8
-
 module Ree
   class Route
     attr_accessor :url, :type, :block, :conds
@@ -18,7 +17,8 @@ module Ree
     end
 
     def run
-      block.call
+      require 'ree/utils/response'
+      Response.build block.call
     end
 
   end

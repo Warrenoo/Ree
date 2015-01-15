@@ -1,6 +1,5 @@
 # coding: utf-8
-require './main.rb'
-
+require "ree"
 
 erb = <<-ERB
   <html>
@@ -14,15 +13,24 @@ erb = <<-ERB
 ERB
 
 get "/" do
-  Ree::Response.build [200, {"Content-Type" => "text/html"}, ["OK"]]
+  render "OK"
 end
 
 get "/show" do
-  Ree::Response.build [200, {"Content-Type" => "text/html"}, ["SHOW"]]
+  render "SHOW"
 end
 
 get "/erb" do
-  Ree::Response.build [200, {"Content-Type" => "text/html"}, [erb]]
+  render erb
+end
+
+get "/test" do
+  render template: File.expand_path("../test.html", __FILE__)
+end
+
+get "/json" do
+  json = { a: 1, b: 2, c: 3, d: 4}
+  render json: json
 end
 
 app = Rack::Builder.new { run Ree::Application }
